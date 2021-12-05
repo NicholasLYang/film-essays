@@ -1,18 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import EssayPage from "./EssayPage";
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <h1> Film Essays </h1>
-      </header>
-      <ul>
-        <li> Irrational characters </li>
-        <li> Single instrument soundtracks </li>
-      </ul>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<HomePage />} />
+          <Route path="essays/:title" element={<EssayPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
